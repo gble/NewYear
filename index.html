@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>2021 제야의종!</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <h1 id="clock" >00:00</h1>
+    <h1>온라인 제야의종</h1>
+    <h2><a href="Flash.html">플래시 장례식 찾아가기</a></h2>
+    <!--<h2 id="newYear" style="color:white"></h2>-->
+    <!--<span id = "newYear" style = "font-size: 700%; color: white;"></span><br><br><br>-->
+    <!--<span id = "RIPFlash" style = "font-size: 300%; color: white"></span><br>-->
+    <h1 id="newYear" style="font-size: 700%; color: white;">아직 2020년!</h1>
+    <style>
+        body {
+            background-color: #1c1c1c;
+            text-align:center
+        }
+        a {
+            text-decoration: none;
+            color: white;
+        }
+        a:hover{
+            color: #707070; text-decoration: none;
+        }
+        /*{
+            background-color: #592604;
+            border:5px solid #FFD700;
+            color: #ffffff;
+            padding:10px;
+            display:flex;
+            float: center;
+        }*/
+        h1 {
+            color: white;
+        }
+
+    </style>
+
+<script>
+var clockTarget = document.getElementById("clock");
+var YearTarget = document.getElementById("newYear");
+
+    if (new Date() >= new Date('01/01/2021 00:00:00') //시작일           
+                && new Date() < new Date('01/02/2021 00:00:00')) { //종료일       
+                    a = "<h1" + ">2021년 입니다!</h1" + ">";
+                     YearTarget .innerHTML = `2021년 입니다! <iframe width="560" height="315" src="https://www.youtube.com/embed/6iFbuIpe68k" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+                     
+        } 
+
+function clock() {
+    var date = new Date();
+
+    var month = date.getMonth();
+    var clockDate = date.getDate();
+    var day = date.getDay();
+    var week = ['일', '월', '화', '수', '목', '금', '토'];
+    var hours = date.getHours();
+    var minutes = date.getMinutes();
+    var seconds = date.getSeconds();
+    clockTarget .innerText = `${month+1}월 ${clockDate}일 ${week[day]}요일` +
+
+    `${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes }`  : minutes }:${seconds < 10 ? `0${seconds }`  : seconds }`;
+
+    // 월은 0부터 1월이기에 +1일
+
+    // 시간 분 초는 한자리수이면 시계가 어색해보일까봐 10보다 작으면 앞에0을 붙혀주는 작업을 3항연산으로 했습니다. 
+}
+
+
+
+function init() {
+
+clock();
+
+// 최초에 함수를 한번 실행시켜주고 
+setInterval(clock, 1000);
+
+// setInterval이라는 함수로 매초마다 실행을 해줍니다.
+
+// setInterval은 첫번째 파라메터는 함수이고 두번째는 시간인데 밀리초단위로 받습니다. 1000 = 1초 
+
+}
+
+        
+        
+init();
+
+
+</script>
+</body>
+</html>
